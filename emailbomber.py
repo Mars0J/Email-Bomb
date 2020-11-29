@@ -43,7 +43,7 @@ class Email_Bomber:
     def __init__(self):
         try:
             print(bcolors.RED + '\n[+] Program Başlatılıyor [+]')
-            self.target = str(input(bcolors.GREEN + 'Heder Emaili Giriniz :> '))
+            self.target = str(input(bcolors.GREEN + 'Hedef Emaili Giriniz :> '))
             self.mode = int(input(bcolors.GREEN + 'Bomba Modunu Giriniz (1,2,3,4) || 1:(1000) 2:(500) 3:(250) 4:(custom) :>  '))
             if (self.mode) > int(4) or int(self.mode) < int(1):
                 print('ERROR: Geçersiz Seçenek GoodBye.')
