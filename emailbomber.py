@@ -53,7 +53,7 @@ class Email_Bomber:
     
     def bomb(self):
         try:
-            print(bcolors.RED + '\n[+] Setting up Bomb [+]')
+            print(bcolors.RED + '\n[+] Bomba [+]')
             self.amount = None
             if self.mode == int(1):
                 self.amount = int(1000)
@@ -68,7 +68,7 @@ class Email_Bomber:
             print(f'ERROR: {e}')
     def email(self):
         try:
-            print(bcolors.RED + '\n[+] Setting up Email [+]')
+            print(bcolors.RED + '\n[+] Hedef Email [+]')
             self.server = str(input(bcolors.GREEN + 'Hesaba Gireceğiniz Email Türünü Giriniz - 1:Gmail 2:Yahoo 3:Outlook :>  '))   
             premade = ['1', '2', '3']
             default_port = True 
